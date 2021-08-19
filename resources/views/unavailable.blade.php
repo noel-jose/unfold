@@ -20,10 +20,10 @@
         
         <!-- Masthead-->
         <header class="masthead">
-            <div class="container">
+            <div class="container p-4">
                 <!-- <div class="masthead-subheading">Sorry the question is currently unavailable</div> -->
                 <!-- <div class="masthead-heading ">Sorry the question is currently unavailable</div> -->
-                <h1 class="p-5">Sorry the question is currently unavailable</h1>
+                <h1 class="p-5 ">Sorry the question is currently unavailable</h1>
                 <a class="btn btn-primary btn-xl text-uppercase" href="/">Go Back</a>
             </div>
         </header>

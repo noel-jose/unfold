@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\QuestionController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Question;
 
@@ -17,18 +18,10 @@ use App\Models\Question;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('question.index');
 
-Route::get('/question/{question}',function(Question $question){
-    if($question->showQuestion)
-    {
-        return view('question')->with(['question'=>$question]);
-    }
-    else
-    {
-        return view('unavailable');
-    }
-    
-});
+Route::get('/question/{question}',[QuestionController::class,'show'])->name('question.show');
+
+Route::post('/question/{question}',[QuestionController::class,'store'])->name('question.submit');
 
 Route::get('/sample',[QuestionController::class,'index']);
