@@ -2,14 +2,26 @@
 @section('title',"Question $question->questionNo")
 @section('content')
 
+
 <!-- Contact-->
 <section class="page-section" id="contact">
+            <div class="counter">
+                <ul id="demo">
+                    <li class="circle hours"></li>
+                    :
+                    <li class="circle minutes"></li>
+                    :
+                    <li class="circle seconds"></li>
+                </ul>
+            </div>
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Question . {{ $question->questionNo}}</h2>
+                    <!-- <h2 class="section-heading text-uppercase">Question . {!! $question->questionNo!!}</h2> -->
+                    {!! $question->question!!}
                     <h4 class="question text-center p-2 m-4">{{$question->question}}                    </h4>
-                    <h5 class="question text-center p-2 m-4">Hint: {{$question->hint}}</h5>
+                    {!! $question->hint !!}
                 </div>
+                @if(!$question->showAnswer)
                 <form id="contactForm" action="{{route('question.submit',$question)}}" method="post">
                     @csrf
                     @method('POST')
@@ -32,6 +44,7 @@
                     <!-- Submit Button-->
                     <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase" id="submitButton" type="submit">Submit</button></div>
                 </form>
+                @endif
             </div>
         </section>
 
