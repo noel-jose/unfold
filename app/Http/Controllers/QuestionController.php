@@ -11,7 +11,7 @@ class QuestionController extends Controller
     public function index()
     {
         $questions = Question::all();
-        return view('sample')->with(['questions'=>$questions]);
+        return view('index')->with(['questions'=>$questions]);
     }
 
     public function show(Question $question)

@@ -6,7 +6,9 @@ window.addEventListener('DOMContentLoaded', event => {
 // counter logic
 
     // Set the date we're counting down to
-    var countDownDate = new Date("Dec 31, 2021 15:37:25").getTime();
+    var end = document.getElementById("endtime").innerHTML;
+    
+    var countDownDate = new Date(end).getTime();
 
     // Update the count down every 1 second
     var x = setInterval(function() {
@@ -23,7 +25,6 @@ window.addEventListener('DOMContentLoaded', event => {
     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
     
-    console.log(hours);
     document.querySelector(".hours").innerHTML = hours;
     document.querySelector(".minutes").innerHTML = minutes;
     document.querySelector(".seconds").innerHTML = seconds;
@@ -31,7 +32,7 @@ window.addEventListener('DOMContentLoaded', event => {
     // If the count down is finished, write some text 
     if (distance < 0) {
         clearInterval(x);
-        document.getElementById("demo").innerHTML = "Over";
+        document.getElementById("demo").innerHTML = "<h4>Over</h4>";
     }
     }, 1000);
 

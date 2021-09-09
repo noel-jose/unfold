@@ -21,7 +21,7 @@ class CreateQuestionsTable extends Migration
             $table->boolean('showQuestion');
             $table->boolean('showAnswer');
             $table->boolean('hasHint')->nullable();
-            $table->string('hintType');
+            $table->string('endTime');
             $table->string('hint');
             $table->timestamps();
             

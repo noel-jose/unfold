@@ -16,12 +16,20 @@ use App\Models\Question;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('question.index');
+Route::get('/',[QuestionController::class,'index'])->name('question.index');
 
 Route::get('/question/{question}',[QuestionController::class,'show'])->name('question.show');
 
 Route::post('/question/{question}',[QuestionController::class,'store'])->name('question.submit');
 
 Route::get('/sample',[QuestionController::class,'index']);
+
+Route::get('/clear-cache', function() {
+    Artisan::call('cache:clear');
+    return "Cache is cleared";
+});
+
+Route::get('/view-clear', function() {
+    $exitCode = Artisan::call('view:clear');
+    return 'View cache cleared';
+});
